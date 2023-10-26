@@ -1,1 +1,1 @@
-# vfrtn% light-3
+макет: light-3
