@@ -1,0 +1,36 @@
+.movies {
+  box-sizing: border-box;
+}
+
+.more-movies-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -90px;
+  margin-bottom: 80px;
+}
+
+.more-movies-button__name {
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 6px;
+  background: #f4f4f4;
+  text-align: center;
+  font-size: 12px;
+  border: none;
+  color: #000;
+  width: 320px;
+  height: 36px;
+}
+
+.more-movies-button__name:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 360px) {
+  .more-movies-button__name {
+    width: 240px;
+  }
+}

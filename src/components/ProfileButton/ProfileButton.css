@@ -1,0 +1,30 @@
+.profile-button {
+  color: #000;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 9px 12px;
+  display: flex;
+  column-gap: 7px;
+}
+
+.profile-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.profile-button__text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  margin: 0;
+}
+
+.profile-button__image {
+  width: 12px;
+  height: 14px;
+  background-image: url(../../images/user-button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}

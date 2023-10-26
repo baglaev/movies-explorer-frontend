@@ -1,0 +1,113 @@
+.search-form {
+  margin: 0 70px;
+  padding: 70px 0;
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.search-form__container {
+  margin: 0;
+  border: none;
+  border-radius: 9px;
+  background: #FFF;
+  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.6fr 10fr 1fr 2fr;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 72px;
+  box-sizing: border-box;
+}
+
+.search-form__icon {
+  background-image: url(../../images/search-icon-2.svg);
+  background-repeat: no-repeat;
+  width: 34px;
+  height: 34px;
+  justify-self: flex-end;
+}
+
+.search-form__input {
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  font-feature-settings: "clig" off, "liga" off;
+  width: 100%;
+  padding-bottom: 5px;
+  border: none;
+}
+
+.search-form__input::placeholder {
+  padding-left: 5px;
+  color: #A0A0A0;
+}
+
+.search-form__button {
+  background-image: url(../../images/search-icon.svg);
+  background-repeat: no-repeat;
+  background-color: #fff;
+  width: 34px;
+  height: 34px;
+  justify-self: center;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.search-form__button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 770px) {
+  .search-form {
+    margin: 0 30px;
+    padding: 75px 0 110px;
+  }
+
+  .search-form__container {
+    grid-template-columns: 1.3fr 10fr 2fr 2fr;
+  }
+
+  .search-form__icon {
+    padding-left: 0;
+  }
+
+  .search-form__input {
+    padding-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search-form {
+    margin: 0 10px;
+    padding: 80px 0 45px;
+    border: none;
+  }
+
+  .search-form__container {
+    grid-template-columns: 4fr 1.2fr;
+    grid-template-rows: repeat(2, 70px);
+    row-gap: 29px;
+  }
+
+  .search-form__icon {
+    display: none;
+  }
+
+  .search-form__input {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+  }
+
+  .search-form__button {
+    justify-self: center;
+  }
+}
