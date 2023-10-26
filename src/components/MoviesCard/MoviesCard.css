@@ -1,0 +1,124 @@
+.movies-card {
+  display: grid;
+  grid-template-columns: 240px 30px;
+  grid-template-rows: 151px 30px 37px;
+  background-color: #FFF;
+  border-radius: 10px;
+  position: relative;
+  filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.05));
+}
+
+.movies-card__image {
+  width: 270px;
+  height: 151px;
+  grid-column: span 2;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.movies-card__name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+  line-height: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  padding: 14px 0 0 12px;
+  align-self: start;
+}
+
+.movies-card__length {
+  font-size: 11px;
+  font-weight: 400;
+  color: #A0A0A0;
+  line-height: normal;
+  padding: 10px 0 0 12px;
+  margin: 0;
+}
+
+.movies-card__button {
+  width: 18px;
+  height: 18px;
+  background-image: url(../../images/save-button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  align-self: end;
+  justify-self: center;
+}
+
+.movies-card__button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.movies-card__delete-button {
+  width: 16px;
+  height: 16px;
+  background-image: url(../../images/delete-movie-button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  align-self: end;
+  justify-self: center;
+}
+
+.movies-card__delete-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.movies-card__button_active {
+  background-image: url(../../images/save-button-active.svg);
+}
+
+@media screen and (max-width: 1270px) {
+  .movies-card {
+    grid-template-columns: 299px 40px;
+    grid-template-rows: 190px 30px 37px;
+  }
+
+  .movies-card__image {
+    width: 339px;
+    height: 190px;
+  }
+
+  .movies-card__delete-button {
+    justify-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .movies-card {
+    display: grid;
+    grid-template-columns: 250px 50px;
+    grid-template-rows: 168px 30px 37px;
+    justify-items: center;
+  }
+
+  .movies-card__length {
+    justify-self: flex-start;
+    padding: 10px 0 0 10px;
+  }
+
+  .movies-card__image {
+    width: 300px;
+    height: 168px;
+  }
+
+  .movies-card__name {
+    justify-self: flex-start;
+    padding: 14px 0 0 10px;
+  }
+
+  .movies-card__delete-button {
+    justify-self: flex-end;
+    padding-right: 20px;
+  }
+}
