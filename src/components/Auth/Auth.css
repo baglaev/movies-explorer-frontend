@@ -60,6 +60,14 @@
   cursor: pointer;
 }
 
+.auth__submit-button_disabled {
+  background: #e8e8e8;
+}
+
+.auth__submit-button_disabled:hover {
+  cursor: context-menu;
+}
+
 .auth__link-block {
   width: 396px;
   padding-top: 15px;

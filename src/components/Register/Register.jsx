@@ -1,7 +1,55 @@
 import React from "react";
-import Auth from "../Auth/Auth";
+import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
-function Register() {
+import Auth from "../Auth/Auth";
+import { useFormWithValidation } from "../../hook/useFormWithValidation";
+import { RegexEmail, RegexName } from "../../utils/constants";
+
+
+function Register({ handleRegister, isLoggedIn }) {
+  const [isFormValid, setFormValid] = useState(false);
+  const { values, errors, handleChange, setErrors } = useFormWithValidation();
+
+  useEffect(() => {
+    if (errors.name || errors.email || !values.name || !values.email || !values.password) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [errors, setErrors, values.email, values.name, values.password]);
+
+  function handleSubmit(evt, setLoading) {
+    evt.preventDefault();
+
+    handleRegister(values, setLoading);
+  }
+
+  function changeName(evt) {
+    handleChange(evt);
+    const { name, value } = evt.target;
+    if (!RegexName.test(value)) {
+      setErrors({ ...errors, [name]: "Поле name должно содержать только латиницу, кириллицу, пробел или дефис." });
+    }
+    else {
+      setErrors({ ...errors, [name]: "" });
+    }
+  }
+
+  function changeEmail(evt) {
+    handleChange(evt);
+    const { name, value } = evt.target;
+    if (name === "email") {
+      if (!RegexEmail.test(value)) {
+        setErrors({ ...errors, email: "Поле email не соответствует шаблону электронной почты." });
+      }
+    }
+  }
+
+  if (isLoggedIn) {
+    return <Navigate to="/profile" />
+  }
+
   return (
     <main className="register">
       <section className="register__section">
@@ -11,40 +59,46 @@ function Register() {
           formText="Уже зарегистрированы?"
           link="/signin"
           linkText="Войти"
+          isValid={isFormValid}
+          handleSubmit={handleSubmit}
         >
           <label className="auth__caption">Имя
             <input
+              onChange={changeName}
+              value={values.name || ""}
+              required
               className="auth__input"
               name="name"
               type="text"
-              placeholder="Имя пользователя"
-              minLength="2"
-              maxLength="30"
-              required
+              placeholder="Обязательное поле"
+              minLength={2}
+              maxLength={30}
             />
-          </label>
+            <span className="auth__error">{errors.name}</span></label>
           <label className="auth__caption">E-mail
             <input
+              onChange={changeEmail}
+              value={values.email || ""}
+              required
               className="auth__input"
               name="email"
               type="email"
-              placeholder="Почта пользователя"
-              minLength="2"
-              maxLength="30"
-              required
+              placeholder="Обязательное поле"
             />
-          </label>
+            <span className="auth__error">{errors.email}</span></label>
           <label className="auth__caption">Пароль
             <input
+              onChange={handleChange}
+              value={values.password || ""}
+              required
               className="auth__input"
               name="password"
               type="password"
-              placeholder="Пароль пользователя"
-              minLength="2"
-              maxLength="30"
-              required
+              placeholder="Обязательное поле"
+              minLength={2}
+              maxLength={30}
             />
-            <span className="auth__error">Что-то пошло не так...</span>
+            <span className="auth__error">{errors.password}</span>
           </label>
         </Auth>
       </section>
