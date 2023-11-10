@@ -1,6 +1,6 @@
-макет: light-3
+ссылка на проект: https://bglvssh.diploma.nomoredomainsrocks.ru/
+ссылка на пулл реквест: https://github.com/baglaev/movies-explorer-frontend/pull/2
 
-ссылка на проект: https://bglvssh.diploma.nomoredomainsrocks.ru/ ссылка на пулл реквест: #2
 
 макет: light-3
 
