@@ -116,6 +116,10 @@
   color: #FF4062;
 }
 
+.auth__error-text {
+  color: #FF4062;
+}
+
 .auth__login {
   margin-bottom: 90px;
 }
