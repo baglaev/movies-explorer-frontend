@@ -11,7 +11,6 @@ function InfoToolTip({ isInfoToolTipOpen, onSideMenuClose, isSuccess, handleInfo
         <button
           className="popup__button-closed button"
           type="button"
-          aria-label="Закрыть"
           onClick={onSideMenuClose}
         >
         </button>

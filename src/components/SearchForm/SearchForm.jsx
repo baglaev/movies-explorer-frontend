@@ -21,6 +21,7 @@ function SearchForm({searchQuery, setSearchQuery, handleSearch, isToggleOn, hand
       >
         <div className="search-form__icon"></div>
         <input className="search-form__input"
+          name="search"
           type="text"
           placeholder=" Фильм"
           value={searchQuery || ""}
