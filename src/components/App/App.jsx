@@ -290,7 +290,7 @@ function App() {
             />
             <InfoToolTip
               isSuccess={isSuccess}
-              isInfoTooltipOpen={isInfoToolTipOpen}
+              isInfoToolTipOpen={isInfoToolTipOpen}
               onSideMenuClose={closeSideMenu}
               handleInfoToolTipStatus={response}
             />

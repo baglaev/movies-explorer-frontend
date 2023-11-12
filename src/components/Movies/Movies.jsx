@@ -81,114 +81,114 @@ function Movies({ onSideMenu, isLoggedIn, setLoading, handleSave, handleDelete, 
     }
   })
 
-  // function handleToggleClick() {
-  //   setToggleOn(!isToggleOn);
-  //   const filteredMovies = JSON.parse(localStorage.getItem("foundMovies"));
-  //   const beatFilms = JSON.parse(localStorage.getItem("initialMovies"));
-
-  //   if (!filteredMovies) {
-  //     localStorage.setItem("keyword", JSON.stringify(searchQuery));
-  //     setSearchQuery(JSON.parse(localStorage.getItem("keyword")));
-  //     return setToggleOn(!isToggleOn);
-  //   };
-
-  //   if (searchQuery || filteredMovies) {
-  //     localStorage.setItem("keyword", JSON.stringify(searchQuery));
-  //     setSearchQuery(JSON.parse(localStorage.getItem("keyword")));
-  //     const filteredMovies = beatFilms.filter((movie) =>
-  //       movie.nameRU.toLowerCase().includes(searchQuery.toLowerCase()) || movie.nameEN.toLowerCase().includes(searchQuery.toLowerCase())
-  //     );
-  //     localStorage.setItem("searchFoundMovies", JSON.stringify(filteredMovies));
-
-  //       if (isToggleOn !== true) {
-  //         localStorage.setItem("isToggle", true);
-  //         const filteredMoviesShort = filteredMovies.filter((movie) => movie.duration <= SHORT_MOVIE);
-  //         localStorage.setItem("foundMoviesShort", JSON.stringify(filteredMoviesShort));
-  //         if (filteredMoviesShort.length !== 0 && !isToggleOn) {
-  //           setFoundMovies(JSON.parse(localStorage.getItem("foundMoviesShort")));
-  //           setError("");
-  //         } else if (filteredMoviesShort.length === 0 && !isToggleOn) {
-  //           setMoreButtonActive(false);
-  //           return setError("Ничего не найдено");
-  //         } else {
-  //           setError("Нужно ввести ключевое слово");
-  //           setMoreButtonActive(false);
-  //         }
-  //         return filteredMoviesShort;
-  //       } else if (isToggleOn !== false) {
-  //         localStorage.setItem("isToggle", false);
-  //         setError("");
-  //         if (filteredMovies.length !== 0) {
-  //           setFoundMovies(filteredMovies);
-  //           setError("");
-  //         } else if (filteredMovies.length === 0) {
-  //           return setError("Ничего не найдено");
-  //         } else {
-  //           setError("Нужно ввести ключевое слово");
-  //         }
-  //     }
-  //   }
-  // }
-
   function handleToggleClick() {
-    const initialMovies = JSON.parse(localStorage.getItem("initialMovies"));
-  
-    if (searchQuery || !initialMovies) {
+    setToggleOn(!isToggleOn);
+    const filteredMovies = JSON.parse(localStorage.getItem("foundMovies"));
+    const beatFilms = JSON.parse(localStorage.getItem("initialMovies"));
+
+    if (!filteredMovies) {
       localStorage.setItem("keyword", JSON.stringify(searchQuery));
       setSearchQuery(JSON.parse(localStorage.getItem("keyword")));
-      const filteredMovies = initialMovies.filter((movie) =>
+      return setToggleOn(!isToggleOn);
+    };
+
+    if (searchQuery || filteredMovies) {
+      localStorage.setItem("keyword", JSON.stringify(searchQuery));
+      setSearchQuery(JSON.parse(localStorage.getItem("keyword")));
+      const filteredMovies = beatFilms.filter((movie) =>
         movie.nameRU.toLowerCase().includes(searchQuery.toLowerCase()) || movie.nameEN.toLowerCase().includes(searchQuery.toLowerCase())
       );
-  
-      checkToggle(filteredMovies);
+      localStorage.setItem("searchFoundMovies", JSON.stringify(filteredMovies));
+
+        if (isToggleOn !== true) {
+          localStorage.setItem("isToggle", true);
+          const filteredMoviesShort = filteredMovies.filter((movie) => movie.duration <= SHORT_MOVIE);
+          localStorage.setItem("foundMoviesShort", JSON.stringify(filteredMoviesShort));
+          if (filteredMoviesShort.length !== 0 && !isToggleOn) {
+            setFoundMovies(JSON.parse(localStorage.getItem("foundMoviesShort")));
+            setError("");
+          } else if (filteredMoviesShort.length === 0 && !isToggleOn) {
+            setMoreButtonActive(false);
+            return setError("Ничего не найдено");
+          } else {
+            setError("Нужно ввести ключевое слово");
+            setMoreButtonActive(false);
+          }
+          return filteredMoviesShort;
+        } else if (isToggleOn !== false) {
+          localStorage.setItem("isToggle", false);
+          setError("");
+          if (filteredMovies.length !== 0) {
+            setFoundMovies(filteredMovies);
+            setError("");
+          } else if (filteredMovies.length === 0) {
+            return setError("Ничего не найдено");
+          } else {
+            setError("Нужно ввести ключевое слово");
+          }
+      }
     }
   }
-  
 
-  // function checkToggle(filteredMovies) {
-  //   if (isToggleOn === true) {
-  //     localStorage.setItem("isToggle", true);
-  //     const filteredMoviesShort = filteredMovies.filter((movie) => movie.duration <= SHORT_MOVIE);
-  //     localStorage.setItem("foundMoviesShort", JSON.stringify(filteredMoviesShort));
-  //     if (filteredMoviesShort.length !== 0 && isToggleOn) {
-  //       setFoundMovies(JSON.parse(localStorage.getItem("foundMoviesShort")));
-  //       setError("");
-  //     } else if (filteredMoviesShort.length === 0 && isToggleOn) {
-  //       setError("Ничего не найдено");
-  //       setMoreButtonActive(false);
-  //     } else {
-  //       setError("Нужно ввести ключевое слово");
-  //       setMoreButtonActive(false);
-  //     }
-  //     return filteredMoviesShort;
-  //   } else if (isToggleOn === false) {
-  //     localStorage.setItem("isToggle", false);
-  //     setError("");
-  //     return setFoundMovies(JSON.parse(localStorage.getItem("foundMovies")));
+  // function handleToggleClick() {
+  //   const initialMovies = JSON.parse(localStorage.getItem("initialMovies"));
+  
+  //   if (searchQuery || !initialMovies) {
+  //     localStorage.setItem("keyword", JSON.stringify(searchQuery));
+  //     setSearchQuery(JSON.parse(localStorage.getItem("keyword")));
+  //     const filteredMovies = initialMovies.filter((movie) =>
+  //       movie.nameRU.toLowerCase().includes(searchQuery.toLowerCase()) || movie.nameEN.toLowerCase().includes(searchQuery.toLowerCase())
+  //     );
+  
+  //     checkToggle(filteredMovies);
   //   }
   // }
+  
 
   function checkToggle(filteredMovies) {
-    const isToggleOn = !!localStorage.getItem("isToggle") === true;
-  
-    if (isToggleOn) {
+    if (isToggleOn === true) {
       localStorage.setItem("isToggle", true);
       const filteredMoviesShort = filteredMovies.filter((movie) => movie.duration <= SHORT_MOVIE);
       localStorage.setItem("foundMoviesShort", JSON.stringify(filteredMoviesShort));
-  
-      if (filteredMoviesShort.length !== 0) {
+      if (filteredMoviesShort.length !== 0 && isToggleOn) {
         setFoundMovies(JSON.parse(localStorage.getItem("foundMoviesShort")));
         setError("");
-      } else {
+      } else if (filteredMoviesShort.length === 0 && isToggleOn) {
         setError("Ничего не найдено");
         setMoreButtonActive(false);
+      } else {
+        setError("Нужно ввести ключевое слово");
+        setMoreButtonActive(false);
       }
-    } else {
+      return filteredMoviesShort;
+    } else if (isToggleOn === false) {
       localStorage.setItem("isToggle", false);
       setError("");
-      setFoundMovies(filteredMovies);
+      return setFoundMovies(JSON.parse(localStorage.getItem("foundMovies")));
     }
   }
+
+  // function checkToggle(filteredMovies) {
+  //   const isToggleOn = !!localStorage.getItem("isToggle") === true;
+  
+  //   if (isToggleOn) {
+  //     localStorage.setItem("isToggle", true);
+  //     const filteredMoviesShort = filteredMovies.filter((movie) => movie.duration <= SHORT_MOVIE);
+  //     localStorage.setItem("foundMoviesShort", JSON.stringify(filteredMoviesShort));
+  
+  //     if (filteredMoviesShort.length !== 0) {
+  //       setFoundMovies(JSON.parse(localStorage.getItem("foundMoviesShort")));
+  //       setError("");
+  //     } else {
+  //       setError("Ничего не найдено");
+  //       setMoreButtonActive(false);
+  //     }
+  //   } else {
+  //     localStorage.setItem("isToggle", false);
+  //     setError("");
+  //     setFoundMovies(filteredMovies);
+  //   }
+  // }
   
 
   function timeout() {

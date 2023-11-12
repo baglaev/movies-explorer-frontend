@@ -22,7 +22,7 @@
   .popup__button-closed {
     width: 32px;
     height: 32px;
-    background-image: url(../../images/close-button.svg);
+    background-image: url(../../images/close-button-popup.svg);
     background-color: transparent;
     background-position: center;
     position: absolute;
