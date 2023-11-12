@@ -9,7 +9,7 @@ const getResponseData = (res) => {
 
 export const getMovies = () => {
   return fetch(`${BASE_URL}`, {
-    // method: 'GET',
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },

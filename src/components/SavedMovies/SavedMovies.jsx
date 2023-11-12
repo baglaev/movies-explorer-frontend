@@ -14,21 +14,21 @@ function SavedMovies({ onSideMenu, isLoggedIn, handleDelete, isLoading }) {
   const [error, setError] = useState("");
   const [isToggleOn, setToggleOn] = useState(false);
 
-  useEffect(() => {
-    const moviesSaved = JSON.parse(localStorage.getItem("savedMovies"));
-    if (!moviesSaved || []) {
-      getSavedMovies()
-        .then((movies) => {
-          localStorage.setItem("savedMovies", JSON.stringify(movies));
-          setSavedMovies(movies);
-        })
-        .catch(() => {
-          setError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
-        })
-    } else {
-      setSavedMovies(moviesSaved);
-    }
-  }, [setSavedMovies])
+  // useEffect(() => {
+  //   const moviesSaved = JSON.parse(localStorage.getItem("savedMovies"));
+  //   if (!moviesSaved || []) {
+  //     getSavedMovies()
+  //       .then((movies) => {
+  //         localStorage.setItem("savedMovies", JSON.stringify(movies));
+  //         setSavedMovies(movies);
+  //       })
+  //       .catch(() => {
+  //         setError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
+  //       })
+  //   } else {
+  //     setSavedMovies(moviesSaved);
+  //   }
+  // }, [setSavedMovies])
 
   function handleSearch(searchQuery) {
     if (searchQuery) {
