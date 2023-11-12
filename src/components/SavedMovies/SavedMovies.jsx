@@ -33,7 +33,7 @@ function SavedMovies({ onSideMenu, isLoggedIn, handleDelete, isLoading }) {
     const moviesSaved = JSON.parse(localStorage.getItem("savedMovies"));
     
     if (!moviesSaved || moviesSaved.length === 0) {
-      setError("Ваши сохраненные фильмы не найдены");
+      setError("Ничего не найдено");
     } else {
       setSavedMovies(moviesSaved);
     }
