@@ -20,7 +20,7 @@ function SavedMovies({ onSideMenu, isLoggedIn, handleDelete, isLoading }) {
       getSavedMovies()
         .then((movies) => {
           localStorage.setItem("savedMovies", JSON.stringify(movies));
-          setSavedMovies(movies);
+          // setSavedMovies(movies);
         })
         .catch(() => {
           setError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
