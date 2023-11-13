@@ -60,6 +60,14 @@
   cursor: pointer;
 }
 
+.auth__submit-button_disabled {
+  background: #e8e8e8;
+}
+
+.auth__submit-button_disabled:hover {
+  cursor: context-menu;
+}
+
 .auth__link-block {
   width: 396px;
   padding-top: 15px;
@@ -108,8 +116,12 @@
   color: #FF4062;
 }
 
+.auth__error-text {
+  color: #FF4062;
+}
+
 .auth__login {
-  margin-bottom: 90px;
+  /* margin-bottom: 90px; */
 }
 
 .auth__input-error {

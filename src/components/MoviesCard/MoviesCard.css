@@ -18,6 +18,13 @@
   object-position: center;
 }
 
+.movies-card__link {
+  grid-column: span 2;
+
+  width: 270px;
+  height: 151px;
+}
+
 .movies-card__name {
   font-size: 13px;
   font-weight: 500;
